@@ -4,9 +4,23 @@ RSpec.describe Api::V1::ItemsController, type: :request do
   describe "GET#index" do
     it "it gets all items" do
 
-      item_one   = Item.create(name: item_one)
-      item_two   = Item.create(name: item_two)
-      item_three = Item.create(name: item_three)
+      item_one = Item.create(
+        name: "item_one",
+        description: "desciption_one",
+        image_url: "test_one.gif"
+      )
+
+      item_two = Item.create(
+        name: "item_two",
+        description: "desciption_two",
+        image_url: "test_two.gif"
+      )
+
+      item_three = Item.create(
+        name: "item_three",
+        description: "desciption_three",
+        image_url: "test_three.gif"
+      )
 
       get "/api/v1/items"
 
@@ -19,6 +33,11 @@ RSpec.describe Api::V1::ItemsController, type: :request do
       expect(item_three.name).to eq(items.last["name"])
       expect(item_one.id).to eq(items.first["id"])
       expect(item_three.id).to eq(items.last["id"])
+      expect(item_one.description).to eq(items.first["description"])
+      expect(item_three.description).to eq(items.last["description"])
+      expect(item_three.image_url).to eq(items.last["image_url"])
+      expect(item_one.created_at).to eq(nil)
+
     end
   end
 end
