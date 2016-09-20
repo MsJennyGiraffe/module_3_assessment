@@ -106,7 +106,7 @@ RSpec.describe Api::V1::ItemsController, type: :request do
 
       post "/api/v1/items?item[name]=item&item[description]=test&item[image_url]=test.gif"
 
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(201)
 
       item = JSON.parse(response.body)
 
