@@ -100,4 +100,20 @@ RSpec.describe Api::V1::ItemsController, type: :request do
       expect(response.status).to eq(204)
     end
   end
+
+  describe "GET#create" do
+    it "it creates an item" do
+
+      post "/api/v1/items?item[name]=item&item[description]=test&item[image_url]=test.gif"
+
+      expect(response.status).to eq(201)
+
+      item = JSON.parse(response.body)
+
+      expect(item["name"]).to eq("item")
+      expect(item["description"]).to eq("test")
+      expect(item["image_url"]).to eq("test.gif")
+      expect(item["created_at"]).to eq(nil)
+    end
+  end
 end
