@@ -73,4 +73,31 @@ RSpec.describe Api::V1::ItemsController, type: :request do
       expect(item["created_at"]).to eq(nil)
     end
   end
+
+  describe "GET#destroy" do
+    it "it deletes an item" do
+
+      item_one = Item.create(
+        name: "item_one",
+        description: "desciption_one",
+        image_url: "test_one.gif"
+      )
+
+      item_two = Item.create(
+        name: "item_two",
+        description: "desciption_two",
+        image_url: "test_two.gif"
+      )
+
+      item_three = Item.create(
+        name: "item_three",
+        description: "desciption_three",
+        image_url: "test_three.gif"
+      )
+
+      delete "/api/v1/items/3"
+
+      expect(response.status).to eq(204)
+    end
+  end
 end
