@@ -102,15 +102,9 @@ RSpec.describe Api::V1::ItemsController, type: :request do
   end
 
   describe "GET#create" do
-    it "it deletes an item" do
+    it "it creates an item" do
 
-      item_one = Item.create(
-        name: "item_one",
-        description: "desciption_one",
-        image_url: "test_one.gif"
-      )
-
-      post "/api/v1/items/"
+      post "/api/v1/items?item[name]=item&item[description]=test&item[image_url]=test.gif"
 
       expect(response.status).to eq(201)
     end
