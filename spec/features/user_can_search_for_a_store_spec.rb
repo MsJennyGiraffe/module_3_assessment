@@ -12,7 +12,7 @@ require 'rails_helper'
 RSpec.feature "user can search for a store location" do
   scenario "any user can search by zipcode" do
     visit "/"
-    fill_in :, with: "80202"
+    fill_in :search, with: "80202"
     click_button "Search"
 
     expect(current_path).to eq("/search")
