@@ -11,7 +11,11 @@ gem "jbuilder", "~> 2.0"
 gem "faker"
 gem "therubyracer"
 gem "less-rails-bootstrap"
-gem "minitest-rails"
+gem 'rspec-rails'
+gem "figaro"
+gem "faraday"
+gem "vcr"
+gem "webmock"
 
 group :development do
   gem "spring"
