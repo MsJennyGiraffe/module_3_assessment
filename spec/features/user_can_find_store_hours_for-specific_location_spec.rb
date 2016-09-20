@@ -9,7 +9,7 @@ RSpec.feature "user can see store hours" do
 
       click_link("Cherry Creek Shopping Center")
 
-      expect(current_path).to eq("/stores/:store_id")
+      expect(current_path).to eq("/stores/2740")
       expect(page).to have_content("Cherry Creek Shopping Center")
       expect(page).to have_content("Mobile")
       expect(page).to have_content("Address")
