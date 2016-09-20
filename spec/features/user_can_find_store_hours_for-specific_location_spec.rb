@@ -22,8 +22,6 @@ RSpec.feature "user can see store hours" do
   end
 end
 
-
-
 # As a user
 # After I have searched a zip code for stores
 # When I click the name of a store
