@@ -1,4 +1,6 @@
 class Store
+  attr_reader :city, :distance, :name, :phone, :store_type
+
   def initialize(city, distance, name, phone, store_type)
     @city = city
     @distance = distance
@@ -7,7 +9,7 @@ class Store
     @store_type = store_type
   end
 
-  def find_by_zipcode(zipcode)
+  def self.find_by_zipcode(zipcode)
     stores = BestBuyService.new.get_by_zipcode(zipcode)
     stores.map do |store|
       Store.new(
@@ -17,5 +19,6 @@ class Store
         store["phone"],
         store["storeType"]
       )
+    end
   end
 end
